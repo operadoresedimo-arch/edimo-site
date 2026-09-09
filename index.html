@@ -1235,7 +1235,7 @@ Bairro DER, Ca\xE7ador/SC`},{icon:Ts,label:"E-mail",value:"advocacia@edimo.com.b
 #tc-body h3{margin:0 0 10px;color:#2C1A18;font-size:18px;font-weight:700}
 #tc-body p.tc-lead{margin:0 0 22px;color:#8C6B64;font-size:14px;line-height:1.65;font-family:'Source Serif 4',serif}
 #tc-gal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px;margin-bottom:24px}
-#tc-gal img{width:100%;height:120px;object-fit:cover;border-radius:12px;display:block}
+#tc-gal img{width:100%;height:130px;object-fit:cover;border-radius:12px;display:block}
 #tc-nums{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin-bottom:24px}
 .tc-num{background:#fff;border:1px solid #E0D2CC;border-radius:14px;padding:14px 16px}
 .tc-num b{display:block;color:#2C1A18;font-size:20px;font-weight:800;line-height:1.2}
@@ -1247,6 +1247,12 @@ Bairro DER, Ca\xE7ador/SC`},{icon:Ts,label:"E-mail",value:"advocacia@edimo.com.b
 #tc-frame{width:100%;height:640px;border:0;border-radius:14px;background:#fff;display:block}
 #tc-fallback{margin:14px 0 0;font-size:13px;color:#8C6B64;text-align:center;font-family:'Source Serif 4',serif}
 #tc-fallback a{color:#8A6A18;font-weight:600;text-decoration:underline}
+
+#tc-mapwrap{margin-bottom:26px}
+#tc-map{width:100%;height:300px;border:0;border-radius:14px;display:block}
+#tc-360{display:inline-flex;align-items:center;gap:8px;margin-top:12px;padding:11px 20px;border-radius:12px;background:#D4A937;color:#1A1110;font-size:13.5px;font-weight:600;text-decoration:none;transition:opacity .2s}
+#tc-360:hover{opacity:.9}
+@media (max-height:760px){#tc-map{height:230px}}
 @media (max-width:640px){#tc-overlay{padding:12px}#tc-body{padding:20px}#tc-head{padding:18px 20px}#tc-head h2{font-size:19px}#tc-frame{height:560px}}
 @media (max-height:760px){#tc-gal img{height:96px}#tc-frame{height:520px}}
 </style>
@@ -1270,6 +1276,13 @@ Bairro DER, Ca\xE7ador/SC`},{icon:Ts,label:"E-mail",value:"advocacia@edimo.com.b
         <div class="tc-num"><b>100</b><span>Posições de atendimento</span></div>
         <div class="tc-num"><b>2 turnos</b><span>Manhã e tarde</span></div>
         <div class="tc-num"><b>Desde 2006</b><span>No mercado</span></div>
+      </div>
+
+      <h3>Onde ficamos</h3>
+      <p class="tc-lead">Rua Fernando Machado, 225 - Edifício Verde Vale, Centro, Caçador/SC.</p>
+      <div id="tc-mapwrap">
+        <iframe id="tc-map" title="Localização do escritório" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=Rua%20Fernando%20Machado%2C%20225%2C%20Centro%2C%20Ca%C3%A7ador%2C%20SC&output=embed"></iframe>
+        <a id="tc-360" href="https://maps.app.goo.gl/f6ocSdHMpXj2YUde9" target="_blank" rel="noopener noreferrer">Ver tour 360° do escritório</a>
       </div>
 
       <h3>O que oferecemos</h3>
@@ -1305,7 +1318,7 @@ Bairro DER, Ca\xE7ador/SC`},{icon:Ts,label:"E-mail",value:"advocacia@edimo.com.b
     document.querySelectorAll('section img').forEach(function(im){
       if (im.src && im.src.indexOf('data:image/jpeg') === 0 && srcs.indexOf(im.src) === -1) srcs.push(im.src);
     });
-    srcs.slice(0,4).forEach(function(s){
+    srcs.forEach(function(s){
       var i = document.createElement('img'); i.src = s; i.alt = ''; gal.appendChild(i);
     });
     if (srcs.length) galDone = true;
